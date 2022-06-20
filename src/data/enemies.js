@@ -25,6 +25,8 @@ import boss55ERT from '@/data/enemies/boss55-ert';
 import boss60Wizard from '@/data/enemies/boss60-wizard';
 import bossResetTear from '@/data/enemies/boss-reset-tear';
 
+import store from "@/state/store.js";
+
 const BOSS_ENEMIES = {
 	...boss10Rev,
 	...boss20Security,
@@ -35,6 +37,8 @@ const BOSS_ENEMIES = {
 	...boss60Wizard,
 	...bossResetTear
 }
+
+//console.log("store test: "+store.getters['chrono/remainingTime'])
 
 Object.values(BOSS_ENEMIES).forEach(bossEnemy => {
 	bossEnemy.boss = true;
@@ -71,7 +75,7 @@ let enemyDivision = enemyVals.length / TICKETS.length;
 
 enemyVals.forEach((enemy, index) => {
 	let robustness = calcRobustness(enemy.stats, "enemy");
-
+	let chronoEnemyMoneyUpgrades = store.getters['upgrades/get']("chronoEnemyMoney") || 0;
 	// Don't allow negative robustness for the purpose of calculations (I'm lookin' at you mouse)
 	robustness = Math.max(1, robustness);
 
@@ -79,7 +83,7 @@ enemyVals.forEach((enemy, index) => {
 		chance: 1,
 		items: {
 			id: "money",
-			count: [0, robustness * 10]
+			count: [0, robustness * 10 * (1 + chronoEnemyMoneyUpgrades)]
 		}
 	});
 

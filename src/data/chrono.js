@@ -219,7 +219,55 @@ const BASE_PURCHASES = {
 		requiredUpgrades: {
 			chronoScrying: 0
 		}
-	}
+	},
+	chronoEnemyMoney1: {
+		name: "Wealthy Enemies I",
+		description: "Regular enemies now carry 2x the money they normally do.",
+		icon: require('@/assets/art/chrono/scry.gif'),
+		requiredItems: {
+			bluetime: 1
+		},
+		upgrade: "chronoEnemyMoney",
+		requiredUpgrades: {
+			chronoEnemyMoney: 0
+		},
+		onPurchase(store) {
+			// i really really hate doing this
+			// alternative: edit combat.js where the money is actually awarded and multiply there?
+			// that would unfortunately not show on the per-enemy drop list though. hmm......
+			document.location.reload(true);
+		}
+	},
+	chronoEnemyMoney2: {
+		name: "Wealthy Enemies II",
+		description: "Regular enemies now carry 3x the money they normally do.",
+		icon: require('@/assets/art/chrono/scry.gif'),
+		requiredItems: {
+			bluetime: 2
+		},
+		upgrade: "chronoEnemyMoney",
+		requiredUpgrades: {
+			chronoEnemyMoney: 1
+		},
+		onPurchase(store) {
+			document.location.reload(true);
+		}
+	},
+	chronoEnemyMoney3: {
+		name: "Wealthy Enemies III",
+		description: "Regular enemies now carry 4x the money they normally do.",
+		icon: require('@/assets/art/chrono/scry.gif'),
+		requiredItems: {
+			bluetime: 3
+		},
+		upgrade: "chronoEnemyMoney",
+		requiredUpgrades: {
+			chronoEnemyMoney: 2
+		},
+		onPurchase(store) {
+			document.location.reload(true);
+		}
+	},
 }
 
 const JOB_PURCHASES = {}
@@ -264,7 +312,8 @@ export const SECTIONS = [
 	},
 	{
 		name: "Upgrades",
-		purchases: ["timeBankSize1", "timeBankSize2", "timeBankOptions1", "timeBankOptions2", "timeBankAutoPause", "chronoCombatRoll", "chronoScrying"]
+		purchases: ["timeBankSize1", "timeBankSize2", "timeBankOptions1", "timeBankOptions2", "timeBankAutoPause", "chronoCombatRoll", "chronoScrying",
+		"chronoEnemyMoney1", "chronoEnemyMoney2", "chronoEnemyMoney3"]
 	},
 	{
 		name: "Job Blitz",
