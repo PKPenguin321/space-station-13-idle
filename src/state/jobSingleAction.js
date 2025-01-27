@@ -124,6 +124,7 @@ export default {
 					duration: action.time,
 					onFinish: () => {
 						dispatch("finishAction", actionId);
+						// Track time for completion and achievement tracking purposes
 						commit("completion/trackJobTime", { jobId: getters["jobId"], time: action.time }, { root: true });
 					}
 				});

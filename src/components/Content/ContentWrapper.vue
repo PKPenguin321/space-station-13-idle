@@ -28,6 +28,7 @@ import ContentLing from "./ContentLing";
 import ContentCombat from "./ContentCombat";
 import ContentSettings from "./ContentSettings";
 import ContentChronosphere from "./ContentChronosphere";
+import ContentAchievements from "./ContentAchievements";
 import ContentCompletion from "./ContentCompletion";
 import ContentItemSpawner from "./ContentItemSpawner";
 import ContentAbout from "@/components/Content/ContentAbout";
@@ -57,6 +58,7 @@ export default {
     ContentCombat,
     ContentSettings,
     ContentChronosphere,
+    ContentAchievements,
     ContentCompletion,
     ContentItemSpawner,
     ContentAbout,
